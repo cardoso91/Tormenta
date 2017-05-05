@@ -20,12 +20,14 @@
             android:layout_weight="1">
 
             <ImageView
+                android:id="@+id/imagenClimaActual"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:layout_gravity="center"
                 android:src="@mipmap/cloudy_mini"/>
             <TextView
+                android:id="@+id/descripcionClimaActual"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -41,6 +43,7 @@
             android:layout_weight="1" >
 
             <TextView
+                android:id="@+id/temperaturaActual"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -51,6 +54,7 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/ubicacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
