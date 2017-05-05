@@ -23,6 +23,8 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
     ImageView imagenClimaActual;
     TextView ubicacion;
 
+    TextView bajaActual;
+    TextView altaActual;
 
 
     @Override
@@ -30,10 +32,13 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle);
 
-        descripcionClimaActual = (TextView) findViewById(R.id.descripcionClimaActual);
-        temperaturaActual = (TextView) findViewById(R.id.temperaturaActual);
+        descripcionClimaActual = (TextView) findViewById(R.id.descripcionClimaActualtxt);
+        temperaturaActual = (TextView) findViewById(R.id.temperaturaActualtxt);
         imagenClimaActual = (ImageView) findViewById(R.id.imagenClimaActual);
-        ubicacion = (TextView) findViewById(R.id.ubicacion);
+        ubicacion = (TextView) findViewById(R.id.ubicaciontxt);
+
+        //bajaActual = (TextView) findViewById(R.id.bajaActualtxt);
+        //altaActual = (TextView) findViewById(R.id.altaActualtxt);
 
         service = new YahooWeatherService(this);
         dialog = new ProgressDialog(this);
@@ -50,14 +55,17 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
         Item item = channel.getItem();
 
         //int resourceId = getResources().getIdentifier("drawable/icon_" + channel.getItem().getCondition().getCode(), null, getPackageName());
-
         //@SuppressWarnings("deprecation")
         //Drawable iconoClima = getResources().getDrawable(resourceId);
-
         //imagenClimaActual.setImageDrawable(iconoClima);
+
         descripcionClimaActual.setText(item.getCondition().getDescription());
-        temperaturaActual.setText(item.getCondition().getTemperature() + "uDOBO" + channel.getUnits().getTemperature());
+        temperaturaActual.setText(item.getCondition().getTemperature() + "\u00b0" + channel.getUnits().getTemperature());
         ubicacion.setText(service.getLocation());
+
+
+
+
     }
 
     @Override
