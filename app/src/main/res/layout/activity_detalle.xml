@@ -282,6 +282,7 @@
             android:orientation="vertical" >
 
             <TextView
+                android:id="@+id/humedadtxt"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -304,6 +305,7 @@
             android:orientation="vertical" >
 
             <TextView
+                android:id="@+id/velocidadtxt"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"

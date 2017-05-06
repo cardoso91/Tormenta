@@ -8,16 +8,22 @@ import org.json.JSONObject;
 
 public class Item implements JSONPopulator {
 
-    private Condition condition;
-    
+    private Condition condition = new Condition();
+    private Forecast forecast = new Forecast();
+
+    public Forecast getForecast() {
+        return forecast;
+    }
+
     public Condition getCondition() {
         return condition;
     }
 
     @Override
     public void populate(JSONObject data) {
-        condition = new Condition();
         condition.populate(data.optJSONObject("condition"));
+
+        //forecast.populate(data.optJSONObject("forecast"));
 
 
     }

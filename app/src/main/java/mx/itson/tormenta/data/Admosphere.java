@@ -15,6 +15,7 @@ public class Admosphere implements JSONPopulator {
 
     @Override
     public void populate(JSONObject data) {
+        humidity = data.optInt("humidity");
 
     }
 }

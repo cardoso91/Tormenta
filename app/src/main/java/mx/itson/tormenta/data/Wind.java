@@ -20,6 +20,7 @@ public class Wind implements JSONPopulator {
 
     @Override
     public void populate(JSONObject data) {
+        speed = data.optInt("speed");
 
     }
 }

@@ -8,8 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import mx.itson.tormenta.data.Admosphere;
 import mx.itson.tormenta.data.Channel;
 import mx.itson.tormenta.data.Item;
+import mx.itson.tormenta.data.Wind;
 import mx.itson.tormenta.service.WeatherServiceCallback;
 import mx.itson.tormenta.service.YahooWeatherService;
 
@@ -26,6 +28,9 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
     TextView bajaActual;
     TextView altaActual;
 
+    TextView humedad;
+    TextView velocidad;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +45,9 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
         //bajaActual = (TextView) findViewById(R.id.bajaActualtxt);
         //altaActual = (TextView) findViewById(R.id.altaActualtxt);
 
+        humedad = (TextView) findViewById(R.id.humedadtxt);
+        velocidad = (TextView) findViewById(R.id.velocidadtxt);
+
         service = new YahooWeatherService(this);
         dialog = new ProgressDialog(this);
         dialog.setMessage("Loading...");
@@ -53,6 +61,8 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
         dialog.hide();
 
         Item item = channel.getItem();
+        Admosphere admosphere = new Admosphere();
+        Wind wind = new Wind();
 
         //int resourceId = getResources().getIdentifier("drawable/icon_" + channel.getItem().getCondition().getCode(), null, getPackageName());
         //@SuppressWarnings("deprecation")
@@ -63,7 +73,8 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
         temperaturaActual.setText(item.getCondition().getTemperature() + "\u00b0" + channel.getUnits().getTemperature());
         ubicacion.setText(service.getLocation());
 
-
+        humedad.setText(admosphere.getHumidity() + " " + "%");
+        velocidad.setText(wind.getSpeed() + " " + channel.getUnits().getSpeed());
 
 
     }
