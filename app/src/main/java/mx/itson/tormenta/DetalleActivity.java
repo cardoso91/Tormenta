@@ -1,14 +1,14 @@
 package mx.itson.tormenta;
 
 import android.app.ProgressDialog;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import mx.itson.tormenta.data.Admosphere;
+import mx.itson.tormenta.data.Astronomy;
+import mx.itson.tormenta.data.Atmosphere;
 import mx.itson.tormenta.data.Channel;
 import mx.itson.tormenta.data.Item;
 import mx.itson.tormenta.data.Wind;
@@ -31,6 +31,9 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
     TextView humedad;
     TextView velocidad;
 
+    TextView sunrise;
+    TextView sunset;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +51,15 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
         humedad = (TextView) findViewById(R.id.humedadtxt);
         velocidad = (TextView) findViewById(R.id.velocidadtxt);
 
+        sunrise = (TextView) findViewById(R.id.sunrisetxt);
+        sunset = (TextView) findViewById(R.id.sunsettxt);
+
         service = new YahooWeatherService(this);
         dialog = new ProgressDialog(this);
         dialog.setMessage("Loading...");
         dialog.show();
 
-        service.refreshWeather("Austin,TX");
+        service.refreshWeather("Guaymas, MX");
     }
 
     @Override
@@ -61,8 +67,9 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
         dialog.hide();
 
         Item item = channel.getItem();
-        Admosphere admosphere = new Admosphere();
-        Wind wind = new Wind();
+        Atmosphere atmosphere = channel.getAtmosphere();
+        Wind wind = channel.getWind();
+        Astronomy astronomy = channel.getAstronomy();
 
         //int resourceId = getResources().getIdentifier("drawable/icon_" + channel.getItem().getCondition().getCode(), null, getPackageName());
         //@SuppressWarnings("deprecation")
@@ -73,9 +80,11 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
         temperaturaActual.setText(item.getCondition().getTemperature() + "\u00b0" + channel.getUnits().getTemperature());
         ubicacion.setText(service.getLocation());
 
-        humedad.setText(admosphere.getHumidity() + " " + "%");
+        humedad.setText(atmosphere.getHumidity() + " " + "%");
         velocidad.setText(wind.getSpeed() + " " + channel.getUnits().getSpeed());
 
+        sunrise.setText(astronomy.getSunrise().toString());
+        sunset.setText(astronomy.getSunset().toString());
 
     }
 

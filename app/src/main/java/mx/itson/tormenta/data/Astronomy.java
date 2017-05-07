@@ -20,6 +20,8 @@ public class Astronomy implements JSONPopulator {
 
     @Override
     public void populate(JSONObject data) {
+        sunrise = data.optString("sunrise");
+        sunset = data.optString("sunset");
 
     }
 }

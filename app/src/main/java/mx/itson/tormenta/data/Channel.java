@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class Channel implements JSONPopulator {
     private Item item;
     private Units units;
-    private Admosphere admosphere;
+    private Atmosphere atmosphere;
     private Astronomy astronomy;
     private Wind wind;
 
@@ -21,8 +21,8 @@ public class Channel implements JSONPopulator {
         return units;
     }
 
-    public Admosphere getAdmosphere() {
-        return admosphere;
+    public Atmosphere getAtmosphere() {
+        return atmosphere;
     }
 
     public Astronomy getAstronomy() {
@@ -41,6 +41,15 @@ public class Channel implements JSONPopulator {
 
         item = new Item();
         item.populate(data.optJSONObject("item"));
+
+        atmosphere = new Atmosphere();
+        atmosphere.populate(data.optJSONObject("atmosphere"));
+
+        wind = new Wind();
+        wind.populate(data.optJSONObject("wind"));
+
+        astronomy = new Astronomy();
+        astronomy.populate(data.optJSONObject("astronomy"));
 
 
     }

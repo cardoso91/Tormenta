@@ -364,6 +364,7 @@
                 android:src="@mipmap/sunny_mini"/>
 
             <TextView
+                android:id="@+id/sunrisetxt"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -385,6 +386,7 @@
                 android:src="@mipmap/cloudy_mini"/>
 
             <TextView
+                android:id="@+id/sunsettxt"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"

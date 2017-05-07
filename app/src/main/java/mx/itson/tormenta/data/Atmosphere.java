@@ -6,7 +6,7 @@ import org.json.JSONObject;
  * Created by Cardoso on 5/4/17.
  */
 
-public class Admosphere implements JSONPopulator {
+public class Atmosphere implements JSONPopulator {
     private int humidity;
 
     public int getHumidity() {
