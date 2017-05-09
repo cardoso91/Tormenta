@@ -1,17 +1,19 @@
 <resources>
     <string name="app_name">Tormenta</string>
     <string name="pronostico">Pronóstico</string>
-    <string name="nublado">Nublado</string>
-    <string name="tempreraturaGrados">29ºc</string>
-    <string name="empalme">Empalme</string>
+    <string name="nublado">N/A</string>
+    <string name="tempreraturaGrados">ºc</string>
+    <string name="empalme">N/A</string>
     <string name="min">Min</string>
     <string name="max">Max</string>
     <string name="fecha">03/05/2016</string>
-    <string name="humedadTest">75</string>
+    <string name="humedadTest">N/A</string>
     <string name="humedad">Humedad</string>
-    <string name="vientoTest">100 km/h</string>
+    <string name="vientoTest">N/A</string>
     <string name="viento">Viento</string>
-    <string name="direccionVientoTest">Noroeste</string>
-    <string name="direccionViento">Dirección del Viento</string>
-    <string name="hora">7:20</string>
+    <string name="direccionVientoTest">N/A</string>
+    <string name="presion">Presión</string>
+    <string name="hora">N/A</string>
+    <string name="buscar">Buscar</string>
+
 </resources>

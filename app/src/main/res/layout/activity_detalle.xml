@@ -25,7 +25,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:layout_gravity="center"
-                android:src="@mipmap/cloudy_mini"/>
+                android:src="@drawable/icon_na"/>
             <TextView
                 android:id="@+id/descripcionClimaActualtxt"
                 android:layout_width="match_parent"
@@ -110,13 +110,13 @@
 
     </LinearLayout>
 
-    <TextView
+    <!-- <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/pronostico"/>
+        android:text="@string/pronostico"/> -->
 
-    <LinearLayout
+    <!-- <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -132,7 +132,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:src="@mipmap/partially_cloudy_mini"/>
+                android:src="@drawable/icon_na"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -149,14 +149,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/tempreraturaGrados"
                     android:gravity="center"
                     android:layout_weight="1" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/tempreraturaGrados"
                     android:gravity="center"
                     android:layout_weight="1" />
 
@@ -165,8 +163,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/fecha"/>
+                android:gravity="center"/>
 
         </LinearLayout>
 
@@ -180,7 +177,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:src="@mipmap/rainy_mini"/>
+                android:src="@drawable/icon_na"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -197,14 +194,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/tempreraturaGrados"
                     android:gravity="center"
                     android:layout_weight="1" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/tempreraturaGrados"
                     android:gravity="center"
                     android:layout_weight="1" />
 
@@ -213,8 +208,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/fecha"/>
+                android:gravity="center"/>
 
         </LinearLayout>
 
@@ -228,7 +222,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:src="@mipmap/sunny_mini"/>
+                android:src="@drawable/icon_na"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -246,14 +240,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/tempreraturaGrados"
                     android:gravity="center"
                     android:layout_weight="1" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/tempreraturaGrados"
                     android:gravity="center"
                     android:layout_weight="1" />
 
@@ -262,12 +254,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/fecha"/>
+                android:gravity="center"/>
 
         </LinearLayout>
 
-    </LinearLayout>
+    </LinearLayout> -->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -328,6 +319,7 @@
             android:orientation="vertical" >
 
             <TextView
+                android:id="@+id/presiontxt"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -339,7 +331,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/direccionViento"/>
+                android:text="@string/presion"/>
 
         </LinearLayout>
 
@@ -361,7 +353,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:src="@mipmap/sunny_mini"/>
+                android:src="@drawable/icon_34"/>
 
             <TextView
                 android:id="@+id/sunrisetxt"
@@ -383,7 +375,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:src="@mipmap/cloudy_mini"/>
+                android:src="@drawable/icon_33"/>
 
             <TextView
                 android:id="@+id/sunsettxt"

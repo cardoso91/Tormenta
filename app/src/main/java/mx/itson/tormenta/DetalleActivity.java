@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,9 +33,12 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
 
     TextView humedad;
     TextView velocidad;
+    TextView presion;
 
     TextView sunrise;
     TextView sunset;
+
+
 
 
     @Override
@@ -45,6 +49,15 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
         descripcionClimaActual = (TextView) findViewById(R.id.descripcionClimaActualtxt);
         temperaturaActual = (TextView) findViewById(R.id.temperaturaActualtxt);
         imagenClimaActual = (ImageView) findViewById(R.id.imagenClimaActual);
+        imagenClimaActual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //service.refreshWeather();
+                Toast.makeText(DetalleActivity.this,
+                        "Cargando...",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
         ubicacion = (TextView) findViewById(R.id.ubicaciontxt);
 
         bajaActual = (TextView) findViewById(R.id.bajaActualtxt);
@@ -52,6 +65,7 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
 
         humedad = (TextView) findViewById(R.id.humedadtxt);
         velocidad = (TextView) findViewById(R.id.velocidadtxt);
+        presion = (TextView) findViewById(R.id.presiontxt);
 
         sunrise = (TextView) findViewById(R.id.sunrisetxt);
         sunset = (TextView) findViewById(R.id.sunsettxt);
@@ -61,7 +75,13 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
         dialog.setMessage("Loading...");
         dialog.show();
 
-        service.refreshWeather("Guaymas");
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String value = extras.getString("CIUDAD");
+            //The key argument here must match that used in the other activity
+            service.refreshWeather(value);
+        }
+
     }
 
     @Override
@@ -87,6 +107,7 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
 
         humedad.setText(atmosphere.getHumidity() + " " + "%");
         velocidad.setText(wind.getSpeed() + " " + channel.getUnits().getSpeed());
+        presion.setText(atmosphere.getPressure() + " " + channel.getUnits().getPressure());
 
         sunrise.setText(astronomy.getSunrise().toString());
         sunset.setText(astronomy.getSunset().toString());
