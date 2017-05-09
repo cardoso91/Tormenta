@@ -1,6 +1,7 @@
 package mx.itson.tormenta;
 
 import android.app.ProgressDialog;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import mx.itson.tormenta.data.Astronomy;
 import mx.itson.tormenta.data.Atmosphere;
 import mx.itson.tormenta.data.Channel;
+import mx.itson.tormenta.data.Day;
 import mx.itson.tormenta.data.Item;
 import mx.itson.tormenta.data.Wind;
 import mx.itson.tormenta.service.WeatherServiceCallback;
@@ -45,8 +47,8 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
         imagenClimaActual = (ImageView) findViewById(R.id.imagenClimaActual);
         ubicacion = (TextView) findViewById(R.id.ubicaciontxt);
 
-        //bajaActual = (TextView) findViewById(R.id.bajaActualtxt);
-        //altaActual = (TextView) findViewById(R.id.altaActualtxt);
+        bajaActual = (TextView) findViewById(R.id.bajaActualtxt);
+        altaActual = (TextView) findViewById(R.id.altaActualtxt);
 
         humedad = (TextView) findViewById(R.id.humedadtxt);
         velocidad = (TextView) findViewById(R.id.velocidadtxt);
@@ -59,7 +61,7 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
         dialog.setMessage("Loading...");
         dialog.show();
 
-        service.refreshWeather("Guaymas, MX");
+        service.refreshWeather("Guaymas");
     }
 
     @Override
@@ -70,15 +72,18 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
         Atmosphere atmosphere = channel.getAtmosphere();
         Wind wind = channel.getWind();
         Astronomy astronomy = channel.getAstronomy();
+        Day day = new Day();
 
-        //int resourceId = getResources().getIdentifier("drawable/icon_" + channel.getItem().getCondition().getCode(), null, getPackageName());
-        //@SuppressWarnings("deprecation")
-        //Drawable iconoClima = getResources().getDrawable(resourceId);
-        //imagenClimaActual.setImageDrawable(iconoClima);
+        int resourceId = getResources().getIdentifier("drawable/icon_" + channel.getItem().getCondition().getCode(), null, getPackageName());
+        @SuppressWarnings("deprecation")
+        Drawable iconoClima = getResources().getDrawable(resourceId);
+        imagenClimaActual.setImageDrawable(iconoClima);
 
         descripcionClimaActual.setText(item.getCondition().getDescription());
         temperaturaActual.setText(item.getCondition().getTemperature() + "\u00b0" + channel.getUnits().getTemperature());
         ubicacion.setText(service.getLocation());
+
+        //bajaActual.setText(day.setCode(item.getForecast().getLong(Integer.parseInt("code"))));
 
         humedad.setText(atmosphere.getHumidity() + " " + "%");
         velocidad.setText(wind.getSpeed() + " " + channel.getUnits().getSpeed());

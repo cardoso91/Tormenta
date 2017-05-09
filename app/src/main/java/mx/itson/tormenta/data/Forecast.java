@@ -1,46 +1,42 @@
 package mx.itson.tormenta.data;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
  * Created by Cardoso on 5/4/17.
  */
 
-public class Forecast implements JSONPopulator {
+public class Forecast extends JSONArray {
 
-    private int code;
-    private String date;
-    private int high;
-    private int low;
-    private String description;
+    private String day1;
+    private String day2;
+    private String day3;
+    private String day4;
 
-    public int getCode() {
-        return code;
+    public String getDay1() {
+        return day1;
     }
 
-    public String getDate() {
-        return date;
+    public String getDay2() {
+        return day2;
     }
 
-    public int getHigh() {
-        return high;
+    public String getDay3() {
+        return day3;
     }
 
-    public int getLow() {
-        return low;
+    public String getDay4() {
+        return day4;
     }
 
-    public String getDescription() {
-        return description;
-    }
 
-    @Override
-    public void populate(JSONObject data) {
-        code = data.optInt("code");
-        date = data.optString("date");
-        high = data.optInt("high");
-        low = data.optInt("low");
-        description = data.optString("text");
+    public void populate(JSONArray data) {
+        day1 = data.optString(0);
+        day2 = data.optString(1);
+        day3 = data.optString(2);
+        day4 = data.optString(3);
 
     }
+
 }
