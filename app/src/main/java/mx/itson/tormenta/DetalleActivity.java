@@ -33,7 +33,7 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
 
     TextView humedad;
     TextView velocidad;
-    TextView presion;
+    TextView direccion;
 
     TextView sunrise;
     TextView sunset;
@@ -54,7 +54,7 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
             public void onClick(View v) {
                 //service.refreshWeather();
                 Toast.makeText(DetalleActivity.this,
-                        "Cargando...",
+                        "Tranquilo viejo... Cargando...",
                         Toast.LENGTH_SHORT).show();
             }
         });
@@ -65,7 +65,7 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
 
         humedad = (TextView) findViewById(R.id.humedadtxt);
         velocidad = (TextView) findViewById(R.id.velocidadtxt);
-        presion = (TextView) findViewById(R.id.presiontxt);
+        direccion = (TextView) findViewById(R.id.direcciontxt);
 
         sunrise = (TextView) findViewById(R.id.sunrisetxt);
         sunset = (TextView) findViewById(R.id.sunsettxt);
@@ -107,7 +107,10 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
 
         humedad.setText(atmosphere.getHumidity() + " " + "%");
         velocidad.setText(wind.getSpeed() + " " + channel.getUnits().getSpeed());
-        presion.setText(atmosphere.getPressure() + " " + channel.getUnits().getPressure());
+        int direccionLista = wind.getDirection();
+        wind.setWindBearing(direccionLista);
+        direccion.setText(wind.getmWindBearing());
+
 
         sunrise.setText(astronomy.getSunrise().toString());
         sunset.setText(astronomy.getSunset().toString());
@@ -119,4 +122,6 @@ public class DetalleActivity extends AppCompatActivity implements WeatherService
         dialog.hide();
         Toast.makeText(this, exception.getMessage(), Toast.LENGTH_LONG).show();
     }
+
+
 }

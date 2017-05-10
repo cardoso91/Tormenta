@@ -9,7 +9,6 @@ import org.json.JSONObject;
 public class Units implements JSONPopulator {
     private String temperature;
     private String speed;
-    private String pressure;
 
     public String getTemperature() {
         return temperature;
@@ -19,15 +18,11 @@ public class Units implements JSONPopulator {
         return speed;
     }
 
-    public String getPressure() {
-        return pressure;
-    }
 
     @Override
     public void populate(JSONObject data) {
         temperature = data.optString("temperature");
         speed = data.optString("speed");
-        pressure = data.optString("pressure");
 
     }
 }

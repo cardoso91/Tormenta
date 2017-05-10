@@ -2,7 +2,7 @@
     <string name="app_name">Tormenta</string>
     <string name="pronostico">Pronóstico</string>
     <string name="nublado">N/A</string>
-    <string name="tempreraturaGrados">ºc</string>
+    <string name="tempreraturaGrados">N/A</string>
     <string name="empalme">N/A</string>
     <string name="min">Min</string>
     <string name="max">Max</string>
@@ -12,7 +12,7 @@
     <string name="vientoTest">N/A</string>
     <string name="viento">Viento</string>
     <string name="direccionVientoTest">N/A</string>
-    <string name="presion">Presión</string>
+    <string name="direccionViento">Dirección</string>
     <string name="hora">N/A</string>
     <string name="buscar">Buscar</string>
 
