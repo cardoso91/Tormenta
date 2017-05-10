@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Storm</string>
+    <string name="pronostico">Forecast</string>
+    <string name="nublado">N/A</string>
+    <string name="tempreraturaGrados">N/A</string>
+    <string name="empalme">N/A</string>
+    <string name="min">Min</string>
+    <string name="max">Max</string>
+    <string name="fecha">03/05/2016</string>
+    <string name="humedadTest">N/A</string>
+    <string name="humedad">Humidity</string>
+    <string name="vientoTest">N/A</string>
+    <string name="viento">Wind</string>
+    <string name="direccionVientoTest">N/A</string>
+    <string name="direccionViento">Direction of Wind</string>
+    <string name="hora">N/A</string>
+    <string name="buscar">Search</string>
+</resources>
